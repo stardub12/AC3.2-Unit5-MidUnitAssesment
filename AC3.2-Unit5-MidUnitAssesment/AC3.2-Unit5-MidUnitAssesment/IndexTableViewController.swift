@@ -38,13 +38,14 @@ class IndexTableViewController: UITableViewController {
   
   let cellIdentifier: String = "IndexCellIdentifier"
   
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
   }
   
-  // MARK: - Table view data source
   
+  // MARK: - Table view data source
   override func numberOfSections(in tableView: UITableView) -> Int {
     return TestSections.numberOfTestSections()
   }
@@ -58,13 +59,12 @@ class IndexTableViewController: UITableViewController {
     }
   }
   
-  
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
 
     switch (indexPath.section, indexPath.row) {
     case (0, 0):
-      cell.textLabel?.text = autoLayoutViewControllers[0].titleForCell()
+      cell.textLabel?.text = autoLayoutViewControllers[0].titleForCell
     default:
       print("Add row")
     }
@@ -79,7 +79,6 @@ class IndexTableViewController: UITableViewController {
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     switch (indexPath.section, indexPath.row) {
     case (0, 0):
-      print("Add row")
       let dtvc = DesignOneViewController()
       navigationController?.pushViewController(dtvc, animated: true)
 

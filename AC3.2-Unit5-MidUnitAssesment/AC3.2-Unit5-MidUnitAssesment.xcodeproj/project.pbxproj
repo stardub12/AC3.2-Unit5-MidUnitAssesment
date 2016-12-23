@@ -13,6 +13,7 @@
 		14229F3D1E0C82B3000085ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14229F3B1E0C82B3000085ED /* LaunchScreen.storyboard */; };
 		14229F451E0C82D4000085ED /* IndexTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14229F441E0C82D4000085ED /* IndexTableViewController.swift */; };
 		14229F481E0C8594000085ED /* DesignOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14229F471E0C8594000085ED /* DesignOneViewController.swift */; };
+		14AE96FC1E0CD8C6002E066A /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AE96FB1E0CD8C6002E066A /* Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		14229F3E1E0C82B3000085ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14229F441E0C82D4000085ED /* IndexTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexTableViewController.swift; sourceTree = "<group>"; };
 		14229F471E0C8594000085ED /* DesignOneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignOneViewController.swift; sourceTree = "<group>"; };
+		14AE96FB1E0CD8C6002E066A /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				14229F2F1E0C82B3000085ED /* AppDelegate.swift */,
+				14AE96FB1E0CD8C6002E066A /* Utilities.swift */,
 				14229F391E0C82B3000085ED /* Assets.xcassets */,
 				14229F3B1E0C82B3000085ED /* LaunchScreen.storyboard */,
 				14229F3E1E0C82B3000085ED /* Info.plist */,
@@ -157,6 +160,7 @@
 				14229F451E0C82D4000085ED /* IndexTableViewController.swift in Sources */,
 				14229F381E0C82B3000085ED /* AC3_2_Unit5_MidUnitAssesment.xcdatamodeld in Sources */,
 				14229F301E0C82B3000085ED /* AppDelegate.swift in Sources */,
+				14AE96FC1E0CD8C6002E066A /* Utilities.swift in Sources */,
 				14229F481E0C8594000085ED /* DesignOneViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
