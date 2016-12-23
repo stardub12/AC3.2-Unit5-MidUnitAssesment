@@ -41,6 +41,7 @@ class DesignOneViewController: UIViewController, CellTitled {
     
     self.setupViewHierarchy()
     self.configureConstraints()
+    self.title = titleForCell
   }
   
   
@@ -55,8 +56,9 @@ class DesignOneViewController: UIViewController, CellTitled {
   
   
   // MARK: - Define Your Views Here
+  
   // ex: 
-  //
+  // let grayContainer: UIView = ... your code here ...
   // let leftGreen1: UIView = ... your code here ...
   // let leftGreen2: UIView = ... your code here ...
   //

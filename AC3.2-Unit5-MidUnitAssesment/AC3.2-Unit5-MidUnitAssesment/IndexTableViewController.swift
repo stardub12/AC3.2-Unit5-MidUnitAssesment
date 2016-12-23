@@ -33,7 +33,7 @@ enum TestSections: String {
 class IndexTableViewController: UITableViewController {
   
   // Assesment View Controllers
-  private let autoLayoutViewControllers: [CellTitled] = [ DesignOneViewController() ]
+  private let autoLayoutViewControllers: [CellTitled] = [ DesignOneViewController(), DesignTwoViewController() ]
   private let coreDataViewControllers: [UIViewController] = [] // add core data vc's here
   
   let cellIdentifier: String = "IndexCellIdentifier"
@@ -42,6 +42,7 @@ class IndexTableViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+    self.title = "AC3.2 Mid Unit 5"
   }
   
   
@@ -63,8 +64,8 @@ class IndexTableViewController: UITableViewController {
     let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
 
     switch (indexPath.section, indexPath.row) {
-    case (0, 0):
-      cell.textLabel?.text = autoLayoutViewControllers[0].titleForCell
+    case (0, let row):
+      cell.textLabel?.text = autoLayoutViewControllers[row].titleForCell
     default:
       print("Add row")
     }
@@ -78,8 +79,8 @@ class IndexTableViewController: UITableViewController {
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     switch (indexPath.section, indexPath.row) {
-    case (0, 0):
-      let dtvc = DesignOneViewController()
+    case (0, let row):
+      let dtvc = autoLayoutViewControllers[row] as! UIViewController
       navigationController?.pushViewController(dtvc, animated: true)
 
     default:
