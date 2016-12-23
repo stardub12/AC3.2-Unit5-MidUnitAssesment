@@ -14,15 +14,23 @@ class RecipesTableViewController: UITableViewController, CellTitled, NSFetchedRe
    
     // Comment #1
     // fix the declaration of fetchedResultsController
-    //var fetchedResultsController: NSFetchedResultsController<Entry>!
+    var fetchedResultsController: NSFetchedResultsController<Recipe>!
 
     var mainContext: NSManagedObjectContext {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.persistentContainer.viewContext
     }
     
+   
     override func viewDidLoad() {
         super.viewDidLoad()
+        let request: NSFetchRequest<Recipe> = Recipe.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Recipe.title), ascending: false)]
+        
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: mainContext, sectionNameKeyPath: nil, cacheName: nil)
+        fetchedResultsController.delegate = self
+        try! fetchedResultsController.performFetch()
+        
 
         self.title = titleForCell
         
@@ -56,6 +64,14 @@ class RecipesTableViewController: UITableViewController, CellTitled, NSFetchedRe
                             // Comment #2
                             // insert your core data objects here
                             
+                            for record in records {
+                                // now it goes in the database
+                                let dict = NSEntityDescription.insertNewObject(forEntityName: "Recipe", into: self.mainContext) as! Recipe
+                                dict.populate(from: record)
+                                print(dict)
+                            }
+
+                            
                             do {
                                 try context.save()
                             }
@@ -74,45 +90,57 @@ class RecipesTableViewController: UITableViewController, CellTitled, NSFetchedRe
         }
     }
     
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        guard let sections = fetchedResultsController.sections else {
+            print("No sections in fetchedResultsController")
+            return 0
+        }
+        return sections.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        guard let sections = fetchedResultsController.sections else {
+            fatalError("No items in fetchedResultsController")
+        }
+        let sectionInfo = sections[section]
+        return sectionInfo.numberOfObjects
+    
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Recipe", for: indexPath) as! RecipesTableViewCell
+        let recipeData = fetchedResultsController.object(at: indexPath)
         // Configure the cell...
-
+        cell.recipeCellView.fullRecipe.text = recipeData.ingredients
+        cell.recipeCellView.recipeTitle.text = recipeData.title
+        cell.recipeCellView.recipeURL.text = recipeData.url
         return cell
     }
-    */
+    
     
     // Comment #3
     // this function is based partly on our projects and partly 
     // on the Coffee Log app. It will require some customization
     // to this project.
     func initializeFetchedResultsController() {
-//        let request: NSFetchRequest<Entry> = Entry.fetchRequest()
-//        let sort = NSSortDescriptor(key: "date", ascending: true)
-//        request.sortDescriptors = [sort]
-//        
-//        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: mainContext, sectionNameKeyPath: nil, cacheName: nil)
-//        fetchedResultsController.delegate = self
-//        
-//        do {
-//            try fetchedResultsController.performFetch()
-//        } catch {
-//            fatalError("Failed to initialize FetchedResultsController: \(error)")
-//        }
+        let request: NSFetchRequest<Recipe> = Recipe.fetchRequest()
+        let sort = NSSortDescriptor(key: "title", ascending: true)
+        request.sortDescriptors = [sort]
+        
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: mainContext, sectionNameKeyPath: nil, cacheName: nil)
+        fetchedResultsController.delegate = self
+        
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            fatalError("Failed to initialize FetchedResultsController: \(error)")
+        }
     }
     
     // MARK: - Search Bar
