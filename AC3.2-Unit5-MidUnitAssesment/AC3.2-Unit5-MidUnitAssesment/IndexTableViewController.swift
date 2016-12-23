@@ -33,18 +33,20 @@ enum TestSections: String {
 class IndexTableViewController: UITableViewController {
   
   // Assesment View Controllers
-  private let autoLayoutViewControllers: [CellTitled] = [ DesignOneViewController() ]
+  private let autoLayoutViewControllers: [CellTitled] = [ DesignOneViewController(), DesignTwoViewController(), DesignThreeViewController() ]
   private let coreDataViewControllers: [CellTitled] = [ RecipesTableViewController() ]
   
   let cellIdentifier: String = "IndexCellIdentifier"
   
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+    self.title = "AC3.2 Mid Unit 5"
   }
   
-  // MARK: - Table view data source
   
+  // MARK: - Table view data source
   override func numberOfSections(in tableView: UITableView) -> Int {
     return TestSections.numberOfTestSections()
   }
@@ -58,15 +60,14 @@ class IndexTableViewController: UITableViewController {
     }
   }
   
-  
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
 
     switch (indexPath.section, indexPath.row) {
-    case (0, 0):
-      cell.textLabel?.text = autoLayoutViewControllers[0].titleForCell()
+    case (0, let row):
+      cell.textLabel?.text = autoLayoutViewControllers[row].titleForCell
     case (1, 0):
-      cell.textLabel?.text = coreDataViewControllers[0].titleForCell()
+      cell.textLabel?.text = coreDataViewControllers[0].titleForCell
     default:
       print("Add row")
     }
@@ -80,9 +81,8 @@ class IndexTableViewController: UITableViewController {
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     switch (indexPath.section, indexPath.row) {
-    case (0, 0):
-      print("Add row")
-      let dtvc = DesignOneViewController()
+    case (0, let row):
+      let dtvc = autoLayoutViewControllers[row] as! UIViewController
       navigationController?.pushViewController(dtvc, animated: true)
     case (1, 0):
       let rtvc = RecipesTableViewController()

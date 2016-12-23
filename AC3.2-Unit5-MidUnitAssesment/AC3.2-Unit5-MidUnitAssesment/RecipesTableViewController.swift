@@ -10,7 +10,8 @@ import UIKit
 import CoreData
 
 class RecipesTableViewController: UITableViewController, CellTitled, NSFetchedResultsControllerDelegate, UISearchBarDelegate, UITextFieldDelegate {
-    
+    var titleForCell = "Core Data"
+   
     // fix the declaration of fetchedResultsController
     //var fetchedResultsController: NSFetchedResultsController<Entry>!
 
@@ -22,16 +23,18 @@ class RecipesTableViewController: UITableViewController, CellTitled, NSFetchedRe
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.title = titleForCell
+        
         // entering text in the textField in the Navigation Bar collects more recipe results
         // and should insert them into Core Data
-        let textField = UITextField(frame: CGRect(x: 0, y: 0, width: 1000, height: 30))
+        let textField = UITextField(frame: CGRect(x: 0, y: 0, width: 200, height: 30))
         textField.borderStyle = .roundedRect
         textField.autocorrectionType = .no
         self.navigationItem.titleView = textField
         textField.delegate = self
         
         // this should filter the results from core data without any network call
-        let searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: 1000, height: 30))
+        let searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: 100, height: 30))
         self.tableView.tableHeaderView = searchBar
         searchBar.delegate = self
    }
@@ -130,10 +133,5 @@ class RecipesTableViewController: UITableViewController, CellTitled, NSFetchedRe
             self.tableView.reloadData()
         }
         return true
-    }
-    
-    // MARK: - CellTitle
-    func titleForCell() -> String {
-        return "Core Data"
     }
 }
