@@ -33,7 +33,7 @@ enum TestSections: String {
 class IndexTableViewController: UITableViewController {
   
   // Assesment View Controllers
-  private let autoLayoutViewControllers: [CellTitled] = [ DesignOneViewController(), DesignTwoViewController() ]
+  private let autoLayoutViewControllers: [CellTitled] = [ DesignOneViewController(), DesignTwoViewController(), DesignThreeViewController() ]
   private let coreDataViewControllers: [UIViewController] = [] // add core data vc's here
   
   let cellIdentifier: String = "IndexCellIdentifier"
