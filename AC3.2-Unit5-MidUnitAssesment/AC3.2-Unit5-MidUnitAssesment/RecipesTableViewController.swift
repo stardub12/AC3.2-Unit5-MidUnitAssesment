@@ -12,6 +12,7 @@ import CoreData
 class RecipesTableViewController: UITableViewController, CellTitled, NSFetchedResultsControllerDelegate, UISearchBarDelegate, UITextFieldDelegate {
     var titleForCell = "Core Data"
    
+    // Comment #1
     // fix the declaration of fetchedResultsController
     //var fetchedResultsController: NSFetchedResultsController<Entry>!
 
@@ -47,12 +48,12 @@ class RecipesTableViewController: UITableViewController, CellTitled, NSFetchedRe
                     if let wholeDict = jsonData as? [String:Any],
                         let records = wholeDict["results"] as? [[String:Any]] {
                         
-                        //let context = self.privateContext
                         let appDelegate = UIApplication.shared.delegate as! AppDelegate
                         let pc = appDelegate.persistentContainer
                         pc.performBackgroundTask { (context: NSManagedObjectContext) in
                             context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
        
+                            // Comment #2
                             // insert your core data objects here
                             
                             do {
@@ -95,6 +96,7 @@ class RecipesTableViewController: UITableViewController, CellTitled, NSFetchedRe
     }
     */
     
+    // Comment #3
     // this function is based partly on our projects and partly 
     // on the Coffee Log app. It will require some customization
     // to this project.
@@ -115,6 +117,7 @@ class RecipesTableViewController: UITableViewController, CellTitled, NSFetchedRe
     
     // MARK: - Search Bar
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        // Comment #4
         self.initializeFetchedResultsController(/* you will need to re-init this with search/filter text*/)
         self.tableView.reloadData()
     }
