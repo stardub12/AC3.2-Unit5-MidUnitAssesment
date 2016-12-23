@@ -13,6 +13,8 @@
 		14229F3D1E0C82B3000085ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14229F3B1E0C82B3000085ED /* LaunchScreen.storyboard */; };
 		14229F451E0C82D4000085ED /* IndexTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14229F441E0C82D4000085ED /* IndexTableViewController.swift */; };
 		14229F481E0C8594000085ED /* DesignOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14229F471E0C8594000085ED /* DesignOneViewController.swift */; };
+		1E245A521E0D0550007A8064 /* APIRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E245A511E0D0550007A8064 /* APIRequestManager.swift */; };
+		1EC1CFE61E0CD78D00634BC5 /* RecipesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC1CFE41E0CD78D00634BC5 /* RecipesTableViewController.swift */; };
 		14AE96FC1E0CD8C6002E066A /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AE96FB1E0CD8C6002E066A /* Utilities.swift */; };
 		14AE96FE1E0CDF6C002E066A /* DesignTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AE96FD1E0CDF6C002E066A /* DesignTwoViewController.swift */; };
 		14AE97001E0CF393002E066A /* DesignThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AE96FF1E0CF393002E066A /* DesignThreeViewController.swift */; };
@@ -27,6 +29,8 @@
 		14229F3E1E0C82B3000085ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14229F441E0C82D4000085ED /* IndexTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexTableViewController.swift; sourceTree = "<group>"; };
 		14229F471E0C8594000085ED /* DesignOneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignOneViewController.swift; sourceTree = "<group>"; };
+		1E245A511E0D0550007A8064 /* APIRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequestManager.swift; sourceTree = "<group>"; };
+		1EC1CFE41E0CD78D00634BC5 /* RecipesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipesTableViewController.swift; sourceTree = "<group>"; };
 		14AE96FB1E0CD8C6002E066A /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		14AE96FD1E0CDF6C002E066A /* DesignTwoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignTwoViewController.swift; sourceTree = "<group>"; };
 		14AE96FF1E0CF393002E066A /* DesignThreeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignThreeViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +66,8 @@
 		14229F2E1E0C82B3000085ED /* AC3.2-Unit5-MidUnitAssesment */ = {
 			isa = PBXGroup;
 			children = (
+				1E245A531E0D0568007A8064 /* Networking */,
+				1EC1CFE81E0CD79500634BC5 /* Core Data */,
 				14229F441E0C82D4000085ED /* IndexTableViewController.swift */,
 				14229F491E0C8598000085ED /* Auto Layout */,
 				14229F361E0C82B3000085ED /* AC3_2_Unit5_MidUnitAssesment.xcdatamodeld */,
@@ -90,6 +96,22 @@
 				14AE96FF1E0CF393002E066A /* DesignThreeViewController.swift */,
 			);
 			name = "Auto Layout";
+			sourceTree = "<group>";
+		};
+		1E245A531E0D0568007A8064 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				1E245A511E0D0550007A8064 /* APIRequestManager.swift */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		1EC1CFE81E0CD79500634BC5 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				1EC1CFE41E0CD78D00634BC5 /* RecipesTableViewController.swift */,
+			);
+			name = "Core Data";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,11 +185,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E245A521E0D0550007A8064 /* APIRequestManager.swift in Sources */,
 				14229F451E0C82D4000085ED /* IndexTableViewController.swift in Sources */,
 				14229F381E0C82B3000085ED /* AC3_2_Unit5_MidUnitAssesment.xcdatamodeld in Sources */,
 				14229F301E0C82B3000085ED /* AppDelegate.swift in Sources */,
 				14AE96FC1E0CD8C6002E066A /* Utilities.swift in Sources */,
 				14229F481E0C8594000085ED /* DesignOneViewController.swift in Sources */,
+				1EC1CFE61E0CD78D00634BC5 /* RecipesTableViewController.swift in Sources */,
 				14AE96FE1E0CDF6C002E066A /* DesignTwoViewController.swift in Sources */,
 				14AE97001E0CF393002E066A /* DesignThreeViewController.swift in Sources */,
 			);

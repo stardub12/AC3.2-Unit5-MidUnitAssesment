@@ -34,7 +34,7 @@ class IndexTableViewController: UITableViewController {
   
   // Assesment View Controllers
   private let autoLayoutViewControllers: [CellTitled] = [ DesignOneViewController(), DesignTwoViewController(), DesignThreeViewController() ]
-  private let coreDataViewControllers: [UIViewController] = [] // add core data vc's here
+  private let coreDataViewControllers: [CellTitled] = [ RecipesTableViewController() ]
   
   let cellIdentifier: String = "IndexCellIdentifier"
   
@@ -66,6 +66,8 @@ class IndexTableViewController: UITableViewController {
     switch (indexPath.section, indexPath.row) {
     case (0, let row):
       cell.textLabel?.text = autoLayoutViewControllers[row].titleForCell
+    case (1, 0):
+      cell.textLabel?.text = coreDataViewControllers[0].titleForCell
     default:
       print("Add row")
     }
@@ -82,7 +84,9 @@ class IndexTableViewController: UITableViewController {
     case (0, let row):
       let dtvc = autoLayoutViewControllers[row] as! UIViewController
       navigationController?.pushViewController(dtvc, animated: true)
-
+    case (1, 0):
+      let rtvc = RecipesTableViewController()
+      navigationController?.pushViewController(rtvc, animated: true)
     default:
       print("Add row")
     }
